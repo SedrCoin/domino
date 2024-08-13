@@ -3,7 +3,7 @@ const right = document.querySelector(".right");
 const sumLeft = document.querySelector(".sum-left");
 const sumRight = document.querySelector(".sum-right");
 
-const nums = document.querySelectorAll(".key");
+const keys = document.querySelector(".keys");
 const leftScore = document.querySelector(".left-score");
 const rightScore = document.querySelector(".right-score");
 const game = document.querySelector(".game");
@@ -38,22 +38,22 @@ function updateDisplay() {
   sumRight.textContent = rightNumbers.reduce((a, b) => a + b, 0);
 
   if (
-    parseInt(sumLeft.textContent) >= 100 ||
-    parseInt(sumRight.textContent) >= 100
+    parseInt(sumLeft.textContent) >= 365 ||
+    parseInt(sumRight.textContent) >= 365
   ) {
     game.style.display = "block";
   }
 }
 
-// Event listeners for number buttons
-nums.forEach((num) => {
-  num.addEventListener("click", () => {
+// Event listener for number buttons using event delegation
+keys.addEventListener("click", (event) => {
+  if (event.target.classList.contains("key")) {
     if (!selected) {
       console.log("No side selected");
       return;
     }
 
-    let number = parseInt(num.textContent.trim());
+    let number = parseInt(event.target.textContent.trim());
 
     if (selected === "left") {
       leftNumbers.push(number);
@@ -64,10 +64,10 @@ nums.forEach((num) => {
     }
 
     updateDisplay();
-  });
+  }
 });
 
-// Function to delete the last added number and update the total
+// Event listener for delete button
 deleteBtn.addEventListener("click", () => {
   if (!selected) {
     console.log("No side selected for deletion");
