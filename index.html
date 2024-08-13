@@ -7,18 +7,29 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1"
     />
 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
     <title>Domino</title>
     <link rel="stylesheet" href="styles.css" />
+
+
+
   </head>
   <body>
     <div class="card">
       <div class="wrapper">
+
+
+
         <div class="left block">
           <input class="name" type="text" placeholder="name" />
 
           <div class="sum-left">0</div>
 
-          <span class="left-score"></span>
+          <span style="text-align: center;"  class="left-score"></span>
         </div>
 
         <div class="right block">
@@ -26,7 +37,7 @@
 
           <div class="sum-right">0</div>
 
-          <span class="right-score"></span>
+          <span  style="text-align: center;"  class="right-score"></span>
         </div>
       </div>
 
@@ -38,13 +49,27 @@
         <button class="key twentyFive">25</button>
         <button class="key thirty">30</button>
         <button class="key thirtyFive">35</button>
+    
       </div>
 
       <div class="delete">
-        <button class="key btn-delete">Delete</button>
+        <button class="key btn-delete">   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 6h18M6 6l1 12h10l1-12M9 6V4h6v2M10 11l4 4M14 11l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg> Delete</button>
       </div>
+
+
+      <div class="end">
+   
+        <button class="key btn-end">     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 21V3M5 3l12 4-12 4M5 3l0 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg> End Game</button>
+      </div>
+  
     </div>
 
+
+  
     <div class="game">
       <div class="game-wrapper">
         <h1>Game Over !</h1>

@@ -6,21 +6,30 @@ body {
   box-sizing: border-box;
   background-color: #2a2b2a;
   color: rgb(210, 206, 206);
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  overflow: hidden;
+
 }
+
+
+
+
 
 html {
   box-sizing: border-box;
+
 }
 
 .card {
   width: 300px;
-  height: 575px;
+  height: 600px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
 
 input {
-  width: 100px;
   height: 25px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -29,6 +38,10 @@ input {
   font-size: 16px;
   background-color: #2a2b2a;
   color: rgb(210, 206, 206);
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
 }
 
 .wrapper {
@@ -39,26 +52,34 @@ input {
   width: 50%;
   height: 300px;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 20px 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow-y: auto;
-  overflow-x: none;
+  overflow: auto;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+
 
 .right {
   width: 50%;
   height: 300px;
-  padding: 20px 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow-y: auto;
-  overflow-x: none;
+  overflow: auto;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+
+
+.left, .right {
+  transition: transform .2s ease, border 0.3s ease;
+  
+}
+
 
 .sum-left {
   display: flex;
@@ -99,6 +120,17 @@ input {
   justify-content: center;
   background-color: none;
   padding: 5px;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+.btn-delete {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .delete {
@@ -109,6 +141,8 @@ button {
   background: none;
   border-radius: 6px;
   color: rgb(210, 206, 206);
+
+
 }
 
 .thirtyFive {
@@ -118,11 +152,15 @@ button {
 .left-border {
   border: 2px solid #44af69;
   border-radius: 8px 0 0 8px;
+
+  
 }
 
 .right-border {
   border: 2px solid #44af69;
   border-radius: 0 8px 8px 0;
+
+  
 }
 
 .game {
@@ -158,4 +196,16 @@ button {
 
 .btn-restart:hover {
   background-color: #0c0d0c;
+}
+
+
+.end {
+  padding: 5px;
+  display: none;
+}
+
+.btn-end {
+  display: flex;
+  align-items: center;
+  
 }
