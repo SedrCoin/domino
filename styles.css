@@ -213,8 +213,8 @@ button {
 
 .refresh {
   position: absolute;
-  top: 0;
-  right: -80px
+  top: -30px;
+  right: 0px
 
 
 }
