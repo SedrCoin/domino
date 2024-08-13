@@ -14,9 +14,6 @@ body {
 }
 
 
-
-
-
 html {
   box-sizing: border-box;
 
@@ -27,14 +24,17 @@ html {
   height: 600px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  position: relative;
 }
 
 input {
-  height: 25px;
+  position: sticky;
+  top:0;
+  height: px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
-  padding: 5px;
+  padding: 15px;
   font-size: 16px;
   background-color: #2a2b2a;
   color: rgb(210, 206, 206);
@@ -52,7 +52,6 @@ input {
   width: 50%;
   height: 300px;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -65,7 +64,6 @@ input {
 .right {
   width: 50%;
   height: 300px;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -207,5 +205,22 @@ button {
 .btn-end {
   display: flex;
   align-items: center;
+  gap: 15px;
   
+}
+
+
+
+.refresh {
+  position: absolute;
+  top: 0;
+  right: -80px
+
+
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

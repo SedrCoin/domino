@@ -11,9 +11,16 @@ const restart = document.querySelector(".btn-restart");
 const deleteBtn = document.querySelector(".btn-delete");
 const end = document.querySelector(".end");
 const endBtn = document.querySelector('.btn-end')
+const refresh = document.querySelector('.refresh')
+const totalLeft = document.querySelector('.left-total')
+const totalRight = document.querySelector('.right-total')
+
 
 let leftNumbers = [];
 let rightNumbers = [];
+
+let totalLeftCounter = 0;
+let totalRightCounter = 0; 
 
 let selected = null;
 
@@ -29,6 +36,7 @@ left.addEventListener("click", (event) => {
   left.classList.add("left-border");
   right.classList.remove("right-border");
   selected = "left";
+
 
 });
 
@@ -47,6 +55,9 @@ function updateDisplay() {
   sumLeft.textContent = leftNumbers.reduce((a, b) => a + b, 0);
   sumRight.textContent = rightNumbers.reduce((a, b) => a + b, 0);
 
+
+
+
   if (
     parseInt(sumLeft.textContent) >= 365 ||
     parseInt(sumRight.textContent) >= 365
@@ -64,10 +75,25 @@ keys.addEventListener("click", (event) => {
 
     let number = parseInt(event.target.textContent.trim());
 
-    if (selected === "left") {
+
+    if(   number === 35 ) {
+    
+
+
+      countTotal()
+    
+      if (selected === 'left' ) {
+        totalLeftCounter += 2 
+        totalLeft.innerHTML = totalLeftCounter
+      } else if (selected === 'right') {
+        totalRightCounter += 2
+        totalRight.innerHTML = totalRightCounter
+      }
+
+      
+    } else if ( selected === "left") {
       leftNumbers.unshift(number);
-     
-    } else if (selected === "right") {
+    }  else if (selected === "right") {
       rightNumbers.unshift(number);
     
     }
@@ -93,14 +119,77 @@ deleteBtn.addEventListener("click", () => {
   updateDisplay();
 });
 
+
+
+
+
+
+
+function countTotal() {
+    
+    leftNumbers = [];
+    rightNumbers = [];
+    updateDisplay();
+}
+
+
 endBtn.addEventListener("click", () => {
-  game.style.display = "none";
-  leftNumbers = [];
-  rightNumbers = [];
-  updateDisplay();
   end.style.display = "none";
+  if(+sumLeft.textContent > +sumRight.textContent ) {
+
+
+    if(+sumRight.textContent < 150 ) {
+      totalLeftCounter += 2
+      totalLeft.innerHTML = totalLeftCounter;
+      leftNumbers = [];
+      rightNumbers = [];
+      updateDisplay();
+    } else {
+      totalLeftCounter += 1
+      totalLeft.innerHTML = totalLeftCounter;
+      leftNumbers = [];
+      rightNumbers = [];
+      updateDisplay();
+    }
+  
+  } else if (+sumLeft.textContent < +sumRight.textContent ) {
+    
+      if(+sumLeft.textContent < 150 ) {
+        totalRightCounter += 2;
+        totalRight.innerHTML = totalRightCounter;
+        leftNumbers = [];
+        rightNumbers = [];
+        updateDisplay();
+      } else {
+        totalRightCounter += 1;
+        totalRight.innerHTML = totalRightCounter;
+        leftNumbers = [];
+        rightNumbers = [];
+        updateDisplay();
+      }
+
+
+  }
+  
 
 });
+
+
+
+  refresh.addEventListener("click", () => {
+    game.style.display = "none";
+    leftNumbers = [];
+    rightNumbers = [];
+    updateDisplay();
+    end.style.display = "none";
+  
+    totalLeft.innerHTML = 0;
+    totalRight.innerHTML = 0;
+    totalLeftCounter = 0;
+    totalRightCounter = 0;
+  
+  });
+
 
 
 document.addEventListener('click', (event) => {
@@ -109,3 +198,4 @@ document.addEventListener('click', (event) => {
     selected = null;
   }
 })
+
