@@ -45,7 +45,6 @@ function updateDisplay() {
   }
 }
 
-// Event listener for number buttons using event delegation
 keys.addEventListener("click", (event) => {
   if (event.target.classList.contains("key")) {
     if (!selected) {
@@ -67,7 +66,6 @@ keys.addEventListener("click", (event) => {
   }
 });
 
-// Event listener for delete button
 deleteBtn.addEventListener("click", () => {
   if (!selected) {
     console.log("No side selected for deletion");
@@ -85,7 +83,6 @@ deleteBtn.addEventListener("click", () => {
   updateDisplay();
 });
 
-// Restart game event listener
 restart.addEventListener("click", () => {
   game.style.display = "none";
   leftNumbers = [];

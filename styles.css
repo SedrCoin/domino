@@ -14,7 +14,7 @@ html {
 
 .card {
   width: 300px;
-  height: 600px;
+  height: 575px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
 }
@@ -37,7 +37,7 @@ input {
 
 .left {
   width: 50%;
-  min-height: 200px;
+  height: 300px;
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   padding: 20px 20px;
   display: flex;
@@ -45,6 +45,7 @@ input {
   gap: 20px;
   overflow-y: auto;
   overflow-x: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .right {
@@ -56,6 +57,7 @@ input {
   gap: 20px;
   overflow-y: auto;
   overflow-x: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .sum-left {
@@ -83,6 +85,10 @@ input {
   place-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  margin-top: 10px;
+  height: 150px;
+  gap: 5px;
+  padding: 5px;
 }
 
 .key {
@@ -93,6 +99,10 @@ input {
   justify-content: center;
   background-color: none;
   padding: 5px;
+}
+
+.delete {
+  padding: 0 5px;
 }
 
 button {
