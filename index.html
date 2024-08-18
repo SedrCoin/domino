@@ -80,7 +80,7 @@
           <button class="key twenty">20</button>
           <button class="key twentyFive">25</button>
           <button class="key thirty">30</button>
-          <button class="key thirtyFive">35</button>
+          <button   id="openModal" class="thirtyFive">35</button>
       
         </div>
   
@@ -115,6 +115,23 @@
 
     </div>
    
+
+
+
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+          <span id="closeModal" class="close">&times;</span>
+          <p>You pressed 35 points, you sure?</p>
+
+
+          <div style="display: flex; align-items: center; justify-content: center; gap: 12px;" class="btn-wrapper">
+            <button class="key btn-no"> No </button>
+            <button class="key btn-yes" > Yes </button>
+          </div>
+     
+      </div>
+  </div>
 
 
     <div id="stats-section" class="hidden table">
@@ -185,6 +202,66 @@ const statsSection = document.querySelector('#stats-section');
 //save
 
 const save =  document.querySelector('.save');
+
+
+//modal
+
+const yesBtn = document.querySelector('.btn-yes')
+
+const noBtn = document.querySelector('.btn-no')
+
+document.getElementById("openModal").onclick = function() {
+
+    if(!selected) return;
+    document.getElementById("modal").style.display = "block";
+  
+}
+
+document.getElementById("closeModal").onclick = function() {
+    document.getElementById("modal").style.display = "none";
+}
+
+noBtn.addEventListener('click', () => {
+  document.getElementById("modal").style.display = "none";
+})
+
+
+yesBtn.addEventListener('click', (event) => {
+  let number = 35
+  document.getElementById("modal").style.display = "none";
+  
+
+  countTotal()
+
+
+
+  if(!selected) return;
+
+  if (selected === 'left' ) {
+    totalLeftCounter += 2 
+    totalLeft.innerHTML = totalLeftCounter
+  } else if (selected === 'right') {
+      totalRightCounter += 2
+      totalRight.innerHTML = totalRightCounter
+  } else if ( selected === "left") {
+        leftNumbers.unshift(number);
+    }  else if (selected === "right") {
+          rightNumbers.unshift(number);
+
+
+
+updateDisplay();
+
+}
+}
+)
+
+
+window.onclick = function(event) {
+    if (event.target === document.getElementById("modal")) {
+        document.getElementById("modal").style.display = "none";
+    }
+}
 
 let leftNumbers = [];
 let rightNumbers = [];
@@ -265,7 +342,7 @@ keys.addEventListener("click", (event) => {
     let number = parseInt(event.target.textContent.trim());
 
 
-    if(   number === 35 ) {
+    if( number === 35 ) {
     
 
 
@@ -390,10 +467,8 @@ function saveGameData() {
             const rightPoints = document.querySelector(".right-total").textContent;
             const date = new Date().toLocaleString();
 
-            // Ссылка на коллекцию игр
             const gamesRef = ref(database, 'games');
 
-            // Сохранение данных игры
             const newGameRef = push(gamesRef);
             set(newGameRef, {
                 leftTeam,
