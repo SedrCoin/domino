@@ -20,80 +20,429 @@
   </head>
   <body>
 
-
-  
-
-    <div class="refresh">
-
-      <span>Refresh</span>
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 4V1L8 5l4 4V6a7 7 0 1 1-7 7H4a9 9 0 1 0 8-9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-  
-    </div>
-
-    <div class="card">
-      <div class="wrapper">
-
-       
-
-        <div class="left block">
-          <input class="name" type="text" placeholder="name" />
-
-          <div class="total"> <span style="font-size: 26px;"  class="left-total">0</span></div>
+    <nav class="navbar">
+      <button id="btn-game">Игра</button>
+      <button id="btn-stats">Статистика</button>
+    </nav>
 
 
-          <div class="sum-left">0</div>
+    <div  id="game-section" class="active">
 
-          <span style="text-align: center;"  class="left-score"></span>
+
+      <div class="refresh">
+
+        <!-- <span>Refresh</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4V1L8 5l4 4V6a7 7 0 1 1-7 7H4a9 9 0 1 0 8-9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg> -->
+
+
+
+        <div class="ref">
+          <button class= " key btn-refresh"> Refresh</button>
         </div>
 
-        <div class="right block">
-          <input class="name" type="text" placeholder="name" />
-          <div   class="total">  <span style="font-size: 26px;" class="right-total">0</span></div>
-          <div class="sum-right">0</div>
-
-          <span  style="text-align: center;"  class="right-score"></span>
+        <div class="save">
+          <button class="key btn-save"> Save</button>
         </div>
-      </div>
-
-      <div class="keys">
-        <button class="key five">5</button>
-        <button class="key ten">10</button>
-        <button class="key fithteen">15</button>
-        <button class="key twenty">20</button>
-        <button class="key twentyFive">25</button>
-        <button class="key thirty">30</button>
-        <button class="key thirtyFive">35</button>
     
       </div>
+  
+      <div class="card">
+        <div class="wrapper">
+  
+         
+  
+          <div class="left block">
+            <input class="name" type="text" placeholder="name" />
+  
+            <div class="total"> <span style="font-size: 26px;"  class="left-total">0</span></div>
+  
+  
+            <div class="sum-left">0</div>
+  
+            <span style="text-align: center;"  class="left-score"></span>
+          </div>
+  
+          <div class="right block">
+            <input class="name" type="text" placeholder="name" />
+            <div   class="total">  <span style="font-size: 26px;" class="right-total">0</span></div>
+            <div class="sum-right">0</div>
+  
+            <span  style="text-align: center;"  class="right-score"></span>
+          </div>
+        </div>
+  
+        <div class="keys">
+          <button class="key five">5</button>
+          <button class="key ten">10</button>
+          <button class="key fithteen">15</button>
+          <button class="key twenty">20</button>
+          <button class="key twentyFive">25</button>
+          <button class="key thirty">30</button>
+          <button class="key thirtyFive">35</button>
+      
+        </div>
+  
+        <div class="delete">
+          <button class="key btn-delete">   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6h18M6 6l1 12h10l1-12M9 6V4h6v2M10 11l4 4M14 11l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg> Delete</button>
+        </div>
+  
+  
+  
 
-      <div class="delete">
-        <button class="key btn-delete">   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 6h18M6 6l1 12h10l1-12M9 6V4h6v2M10 11l4 4M14 11l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg> Delete</button>
+        <div class="end">
+     
+          <button class="key btn-end">     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 21V3M5 3l12 4-12 4M5 3l0 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg> End Game</button>
+        </div>
+    
       </div>
+  
+  
+    
+      <div class="game">
+        <div class="game-wrapper">
+          <h1>Game Over !</h1>
+  
+          <button class="btn-restart">Try Again</button>
+        </div>
+      </div>
+  
 
-
-      <div class="end">
+    </div>
    
-        <button class="key btn-end">     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 21V3M5 3l12 4-12 4M5 3l0 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg> End Game</button>
-      </div>
-  
+
+
+    <div id="stats-section" class="hidden table">
+      <h2>Statistics</h2>
+      <table id="stats-table">
+        <thead>
+          <tr>
+            <th>Team 1</th>
+            <th>Team 2</th>
+            <th>Points</th>
+            <th>Date</th>
+        
+          </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+      </table>
     </div>
 
 
+
+
+<script type="module">
+ 
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+ import {getDatabase, ref, set, push, onValue} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAfusNy3vu7V3KA7zFOvuMrsIzE6sjJ5XM",
+    authDomain: "domino-2-ce704.firebaseapp.com",
+    projectId: "domino-2-ce704",
+    storageBucket: "domino-2-ce704.appspot.com",
+    messagingSenderId: "259101915280",
+    appId: "1:259101915280:web:5bdbc2be5e1e9066d50015",
+    databseURL: "https://domino-2-ce704-default-rtdb.firebaseio.com/",
+  };
+
+
+  const app = initializeApp(firebaseConfig);
+    
+  const database = getDatabase(app);
+
+
+const left = document.querySelector(".left");
+const right = document.querySelector(".right");
+const sumLeft = document.querySelector(".sum-left");
+const sumRight = document.querySelector(".sum-right");
+const card = document.querySelector('.card');
+const keys = document.querySelector(".keys");
+const leftScore = document.querySelector(".left-score");
+const rightScore = document.querySelector(".right-score");
+const game = document.querySelector(".game");
+const restart = document.querySelector(".btn-restart");
+const deleteBtn = document.querySelector(".btn-delete");
+const end = document.querySelector(".end");
+const endBtn = document.querySelector('.btn-end');
+const refresh = document.querySelector('.refresh');
+const totalLeft = document.querySelector('.left-total');
+const totalRight = document.querySelector('.right-total');
+
+// Статистика
+const btnGame = document.getElementById('btn-game');
+const btnStats = document.getElementById('btn-stats');
+const gameSection = document.getElementById('game-section');
+const statsSection = document.querySelector('#stats-section');
+
+//save
+
+const save =  document.querySelector('.save');
+
+let leftNumbers = [];
+let rightNumbers = [];
+
+let totalLeftCounter = 0;
+let totalRightCounter = 0; 
+
+let selected = null;
+
+btnGame.addEventListener('click', () => {
+  gameSection.classList.add('active');
+  gameSection.classList.remove('hidden');
+
+  statsSection.classList.add('hidden');
+  statsSection.classList.remove('active');
+});
+
+btnStats.addEventListener('click', () => {
+  statsSection.classList.add('active');
+  statsSection.classList.remove('hidden');
+
+  gameSection.classList.add('hidden');
+  gameSection.classList.remove('active');
+
+  loadStats();
+
+ 
+});
+
+function removeHighlight() {
+  left.classList.remove('left-border')
+  right.classList.remove('right-border')
+}
+
+
+left.addEventListener("click", (event) => {
+  event.stopPropagation();
+  left.classList.add("left-border");
+  right.classList.remove("right-border");
+  selected = "left";
+
+
+});
+
+right.addEventListener("click", (event) => {
+  event.stopPropagation();
+  right.classList.add("right-border");
+  left.classList.remove("left-border");
+  selected = "right";
+
+});
+
+
+function updateDisplay() {
+  leftScore.innerHTML = leftNumbers.map((num) => `+${num}`).join("<br>");
+  rightScore.innerHTML = rightNumbers.map((num) => `+${num}`).join("<br>");
+  sumLeft.textContent = leftNumbers.reduce((a, b) => a + b, 0);
+  sumRight.textContent = rightNumbers.reduce((a, b) => a + b, 0);
+
+
+
+
+  if (
+    parseInt(sumLeft.textContent) >= 365 ||
+    parseInt(sumRight.textContent) >= 365
+  ) {
+    end.style.display = "block";
+  }
+}
+
+keys.addEventListener("click", (event) => {
+  if (event.target.classList.contains("key")) {
+    if (!selected) {
+      
+      return;
+    }
+
+    let number = parseInt(event.target.textContent.trim());
+
+
+    if(   number === 35 ) {
+    
+
+
+      countTotal()
+    
+      if (selected === 'left' ) {
+        totalLeftCounter += 2 
+        totalLeft.innerHTML = totalLeftCounter
+      } else if (selected === 'right') {
+        totalRightCounter += 2
+        totalRight.innerHTML = totalRightCounter
+      }
+
+      
+    } else if ( selected === "left") {
+      leftNumbers.unshift(number);
+    }  else if (selected === "right") {
+      rightNumbers.unshift(number);
+    
+    }
+
+    updateDisplay();
+  }
+});
+
+deleteBtn.addEventListener("click", () => {
+  if (!selected) {
+    
+    return;
+  }
+
+  if (selected === "left" && leftNumbers.length > 0) {
+    let removed = leftNumbers.shift();
+ 
+  } else if (selected === "right" && rightNumbers.length > 0) {
+    let removed = rightNumbers.shift();
+    
+  }
+
+  updateDisplay();
+});
+
+
+
+function countTotal() {
+    
+    leftNumbers = [];
+    rightNumbers = [];
+    updateDisplay();
+}
+
+
+endBtn.addEventListener("click", () => {
   
-    <div class="game">
-      <div class="game-wrapper">
-        <h1>Game Over !</h1>
 
-        <button class="btn-restart">Try Again</button>
-      </div>
-    </div>
+  end.style.display = "none";
+  if(+sumLeft.textContent > +sumRight.textContent ) {
 
-    <script src="index.js"></script>
+
+    if(+sumRight.textContent < 150 ) {
+      totalLeftCounter += 2
+      totalLeft.innerHTML = totalLeftCounter;
+      leftNumbers = [];
+      rightNumbers = [];
+      updateDisplay();
+    } else {
+      totalLeftCounter += 1
+      totalLeft.innerHTML = totalLeftCounter;
+      leftNumbers = [];
+      rightNumbers = [];
+      updateDisplay();
+    }
+  
+  } else if (+sumLeft.textContent < +sumRight.textContent ) {
+    
+      if(+sumLeft.textContent < 150 ) {
+        totalRightCounter += 2;
+        totalRight.innerHTML = totalRightCounter;
+        leftNumbers = [];
+        rightNumbers = [];
+        updateDisplay();
+      } else {
+        totalRightCounter += 1;
+        totalRight.innerHTML = totalRightCounter;
+        leftNumbers = [];
+        rightNumbers = [];
+        updateDisplay();
+      }
+
+
+  }
+  
+});
+
+  refresh.addEventListener("click", () => {
+    game.style.display = "none";
+    leftNumbers = [];
+    rightNumbers = [];
+    updateDisplay();
+    end.style.display = "none";
+  
+    totalLeft.innerHTML = 0;
+    totalRight.innerHTML = 0;
+    totalLeftCounter = 0;
+    totalRightCounter = 0;
+  
+  });
+
+
+
+document.addEventListener('click', (event) => {
+  if (!card.contains(event.target)) {
+    removeHighlight();
+    selected = null;
+  }
+})
+
+function saveGameData() {
+            const leftTeam = document.querySelector(".left .name").value;
+            const rightTeam = document.querySelector(".right .name").value;
+            const leftPoints = document.querySelector(".left-total").textContent;
+            const rightPoints = document.querySelector(".right-total").textContent;
+            const date = new Date().toLocaleString();
+
+            // Ссылка на коллекцию игр
+            const gamesRef = ref(database, 'games');
+
+            // Сохранение данных игры
+            const newGameRef = push(gamesRef);
+            set(newGameRef, {
+                leftTeam,
+                rightTeam,
+                leftPoints: parseInt(leftPoints),
+                rightPoints: parseInt(rightPoints),
+                date
+            }).then(() => {
+                alert("Game data saved successfully!");
+                loadStats();
+            }).catch(error => {
+                console.error("Error saving game data: ", error);
+            });
+
+          }
+
+
+          function loadStats() {
+            const table = document.getElementById('stats-table').querySelector('tbody');
+            table.innerHTML = ''; 
+            
+            const gamesRef = ref(database, 'games');
+
+          
+            onValue(gamesRef, (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    const data = childSnapshot.val();
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td>${data.leftTeam}</td>
+                        <td>${data.rightTeam}</td>
+                        <td>${data.leftPoints}:${data.rightPoints}</td>
+                        <td>${data.date}</td>
+                    `;
+                    table.appendChild(newRow);
+                });
+            });
+        }
+
+
+
+
+        save.addEventListener('click', saveGameData)
+
+        loadStats();
+</script>
+
+
+
+    <!-- <script src="index.js"></script> -->
   </body>
 </html>
