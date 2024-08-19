@@ -56,7 +56,7 @@
           <div class="left block">
             <input class="name" type="text" placeholder="name" />
   
-            <div class="total"> <span style="font-size: 26px;"  class="left-total">0</span></div>
+            <div class="total"> <span style="font-size: 32px;"  class="left-total">0</span></div>
   
   
             <div class="sum-left">0</div>
@@ -66,7 +66,7 @@
   
           <div class="right block">
             <input class="name" type="text" placeholder="name" />
-            <div   class="total">  <span style="font-size: 26px;" class="right-total">0</span></div>
+            <div   class="total">  <span style="font-size: 32px;" class="right-total">0</span></div>
             <div class="sum-right">0</div>
   
             <span  style="text-align: center;"  class="right-score"></span>
@@ -118,6 +118,7 @@
 
 
 
+    <!-- 35 button modal -->
 
     <div id="modal" class="modal">
       <div class="modal-content">
@@ -134,8 +135,24 @@
   </div>
 
 
+
+<!-- 
+save game modal -->
+  
+  <div id="modalSave" class="modal modal-save">
+    <div class="modal-content">
+        <span id="closeModalSave" class="close">&times;</span>
+        <p>Do you want to save the game?</p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 12px;" class="btn-wrapper">
+          <button class="key btn-no-save-modal"> No </button>
+          <button class="key btn-save-modal" > Save </button>
+        </div>
+    </div>
+</div>
+
+
+
     <div id="stats-section" class="hidden table">
-      <h2>Statistics</h2>
       <table id="stats-table">
         <thead>
           <tr>
@@ -204,11 +221,38 @@ const statsSection = document.querySelector('#stats-section');
 const save =  document.querySelector('.save');
 
 
-//modal
+//modal 35 btn
 
 const yesBtn = document.querySelector('.btn-yes')
-
 const noBtn = document.querySelector('.btn-no')
+
+
+//modal save 
+const saveModal = document.getElementById('modalSave');
+const closeSaveModal = document.getElementById('closeModalSave');
+const btnNoSaveModal = document.querySelector('.btn-no-save-modal');
+const btnSaveModal = document.querySelector('.btn-save-modal')
+
+
+save.addEventListener('click',  () => {
+  saveModal.style.display = 'block'
+  })
+
+closeSaveModal.addEventListener('click', ()=> {
+  saveModal.style.display = 'none'
+})
+
+btnNoSaveModal.addEventListener('click', () => {
+  saveModal.style.display = 'none'
+})
+
+btnSaveModal.addEventListener('click', () => {
+  saveGameData()
+  saveModal.style.display = 'none'
+})
+
+
+
 
 document.getElementById("openModal").onclick = function() {
 
@@ -230,10 +274,7 @@ yesBtn.addEventListener('click', (event) => {
   let number = 35
   document.getElementById("modal").style.display = "none";
   
-
   countTotal()
-
-
 
   if(!selected) return;
 
@@ -252,9 +293,7 @@ yesBtn.addEventListener('click', (event) => {
 
 updateDisplay();
 
-}
-}
-)
+}})
 
 
 window.onclick = function(event) {
@@ -262,6 +301,13 @@ window.onclick = function(event) {
         document.getElementById("modal").style.display = "none";
     }
 }
+
+window.onclick = function(event) {
+    if (event.target === document.getElementById("modalSave")) {
+        document.getElementById("modalSave").style.display = "none";
+    }
+}
+
 
 let leftNumbers = [];
 let rightNumbers = [];
@@ -507,11 +553,6 @@ function saveGameData() {
                 });
             });
         }
-
-
-
-
-        save.addEventListener('click', saveGameData)
 
         loadStats();
 </script>
