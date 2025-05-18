@@ -1,3 +1,5 @@
+
+
 body {
   display: flex;
   gap:12px;
@@ -96,21 +98,25 @@ input {
 .sum-left {
   display: flex;
   justify-content: center;
-  font-size: 24px;
+  font-size: 30px;
+  color: #44af69;
+  border-bottom:  solid rgba(0, 0, 0, 0.2);
 }
 
 .sum-right {
   display: flex;
   justify-content: center;
-  font-size: 24px;
+  font-size: 30px;
+  color: #44af69;
+  border-bottom:  solid rgba(0, 0, 0, 0.2);
 }
 
 .left-score {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .right-score {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .keys {
@@ -330,4 +336,17 @@ tr {
 
 .btn-refresh , .btn-save{
   width: 140px;
+}
+
+
+.right-total {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  text-align: center;
+}
+
+.left-total {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  text-align: center;
 }
